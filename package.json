@@ -1,0 +1,26 @@
+{
+  "name": "sprint13",
+  "version": "0.0.1",
+  "description": "Backend for The Place project",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yixellet/sprint13.git"
+  },
+  "author": "Kotelevsky K. A.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yixellet/sprint13/issues"
+  },
+  "homepage": "https://github.com/yixellet/sprint13#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
