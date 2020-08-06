@@ -7,21 +7,21 @@ const cards = require('./routes/cards');
 const app = express();
 
 mongoose.connect('mongodb://localhost:27017/mestodb', {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-    useUnifiedTopology: true
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+  useUnifiedTopology: true,
 });
 
 app.use(bodyParser());
 app.use('/users', users);
 
 app.use((req, res, next) => {
-    req.user = {
-        _id: '5f2bae03d5f98a183cdc46a0'
-    };
+  req.user = {
+    _id: '5f2bae03d5f98a183cdc46a0',
+  };
 
-    next();
+  next();
 });
 
 app.use('/cards', cards);

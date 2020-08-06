@@ -9,6 +9,6 @@ module.exports = {
     ecmaVersion: 11,
   },
   rules: {
-    allowAfterSuper: true,
+    'no-underscore-dangle': 0,
   },
 };
