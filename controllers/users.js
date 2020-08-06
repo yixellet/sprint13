@@ -20,15 +20,20 @@ module.exports.createUser = (req, res) => {
 };
 
 module.exports.updateUser = (req, res) => {
-  const { newName, newAbout } = req.body;
-  User.findByIdAndUpdate(req.user._id, { name: newName, about: newAbout })
+  const newName = req.body.name;
+  const newAbout = req.body.about;
+  User.findByIdAndUpdate(req.user._id,
+    { name: newName, about: newAbout },
+    { new: true, runValidators: true, upsert: true })
     .then((user) => res.send({ data: user }))
     .catch((err) => res.status(500).send({ message: err.message }));
 };
 
 module.exports.updateAvatar = (req, res) => {
-  const { newAvatar } = req.body;
-  User.findByIdAndUpdate(req.user._id, { avatar: newAvatar })
+  const newAvatar = req.body.avatar;
+  User.findByIdAndUpdate(req.user._id,
+    { avatar: newAvatar },
+    { new: true, runValidators: true, upsert: true })
     .then((user) => res.send({ data: user }))
     .catch((err) => res.status(500).send({ message: err.message }));
 };
