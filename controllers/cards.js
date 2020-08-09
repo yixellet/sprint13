@@ -20,7 +20,13 @@ module.exports.createCard = (req, res) => {
 
 module.exports.deleteCard = (req, res) => {
   Card.findOneAndRemove({ _id: req.params.cardId })
-    .then((card) => res.send({ data: card }))
+    .then((card) => {
+      if (card) {
+        res.send({ data: card });
+      } else {
+        error(res);
+      }
+    })
     .catch(() => error(res));
 };
 
